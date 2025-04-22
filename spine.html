@@ -111,38 +111,28 @@
       errorMessageContainer.textContent = message;
     }
 
-    // Adjust the size of the spines to fit the screen and ensure no spine exceeds the smallest dimensions
+    // Adjust the size of the spines to fit the screen and ensure they maintain aspect ratio
     function adjustSpineSizes() {
       const spineContainer = document.getElementById("spineContainer");
       const spines = spineContainer.getElementsByTagName("img");
 
       if (spines.length > 0) {
-        const containerWidth = spineContainer.offsetWidth;
-        const totalSpines = spines.length;
-        const maxSpineWidth = containerWidth / totalSpines; // Divide container width by number of spines
+        // Set the height of each spine to 80% of the window height
+        const windowHeight = window.innerHeight;
+        const newHeight = windowHeight * 0.8;
 
-        let minWidth = Infinity;
-        let minHeight = Infinity;
-
-        // Calculate the smallest dimensions across all spines
+        // Adjust each spine to have the calculated height while maintaining aspect ratio
         for (const spine of spines) {
           const img = new Image();
           img.src = spine.src;
           img.onload = function() {
-            minWidth = Math.min(minWidth, img.width);
-            minHeight = Math.min(minHeight, img.height);
-
-            // After calculating the smallest dimensions, apply them to the images
-            for (const spine of spines) {
-              spine.style.maxWidth = `${minWidth}px`;
-              spine.style.maxHeight = `${minHeight}px`;
-            }
+            // Calculate width based on aspect ratio
+            const aspectRatio = img.width / img.height;
+            const newWidth = newHeight * aspectRatio;
+            
+            spine.style.height = `${newHeight}px`;
+            spine.style.width = `${newWidth}px`;
           };
-        }
-
-        // Adjust each spine width to fit
-        for (const spine of spines) {
-          spine.style.width = `${maxSpineWidth}px`; // Adjust each spine width to fit
         }
       }
     }
