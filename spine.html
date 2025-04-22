@@ -11,29 +11,38 @@
       background: #f0f0f0;
       color: #333;
     }
+
     header {
       background-color: #222;
       color: white;
       padding: 1rem;
       text-align: center;
     }
+
     .spine-display {
       text-align: center;
       padding: 1rem;
       overflow-x: auto; /* Enable horizontal scrolling */
     }
+
     .spine-container {
-      display: flex; /* Display spines side by side */
-      gap: 10px; /* Space between images */
+      display: flex;
+      gap: 10px;
       justify-content: center;
+      flex-wrap: wrap;
     }
+
     .spine-container img {
-      height: auto; /* Maintain aspect ratio */
+      height: auto;
       border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
     }
-    .hidden {
-      display: none;
+
+    .spine-container img.visible {
+      opacity: 1;
     }
+
     .error-message {
       color: red;
       font-size: 1.2rem;
@@ -51,7 +60,7 @@
     <div id="spineContainer" class="spine-container">
       <!-- Spine images will be dynamically injected here -->
     </div>
-    <div class="error-message" id="errorMessage"></div> <!-- Error message container -->
+    <div class="error-message" id="errorMessage"></div>
   </main>
 
   <script>
@@ -66,11 +75,9 @@
         return;
       }
 
-      // Fetch spines.json and find the game by titleId
       fetch('https://spineworld.vercel.app/data/spines.json')
         .then(response => response.json())
         .then(spines => {
-          // Find the game data by matching the title ID
           let gameData = null;
 
           for (const key in spines) {
@@ -89,7 +96,7 @@
           currentSpineUrls = spineUrls;
 
           const spineContainer = document.getElementById("spineContainer");
-          spineContainer.innerHTML = ""; // Clear existing content
+          spineContainer.innerHTML = "";
 
           const windowHeight = window.innerHeight;
           const newHeight = windowHeight * 0.8;
@@ -98,7 +105,6 @@
             const img = new Image();
             img.src = url;
             img.alt = "Spine Image";
-            img.classList.add("hidden");
 
             img.onload = () => {
               const aspectRatio = img.naturalWidth / img.naturalHeight;
@@ -106,7 +112,8 @@
 
               img.style.height = `${newHeight}px`;
               img.style.width = `${newWidth}px`;
-              img.classList.remove("hidden");
+
+              img.classList.add("visible");
             };
 
             spineContainer.appendChild(img);
