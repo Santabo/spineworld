@@ -21,6 +21,18 @@
       margin: 0;
       font-size: 2rem;
     }
+    .search-container {
+      margin: 1rem auto;
+      text-align: center;
+    }
+    .search-container input {
+      padding: 0.5rem;
+      width: 300px;
+      max-width: 80%;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
     .spine-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -62,39 +74,58 @@
     <p>Explore a collection of game spines from Nintendo Switch and more!</p>
   </header>
 
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search games..." />
+  </div>
+
   <main class="spine-grid" id="gameGrid">
     <!-- Game cards will be dynamically injected here -->
   </main>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Fetch spines.json data
       fetch('https://spineworld.vercel.app/data/spines.json')
         .then(response => response.json())
         .then(spines => {
           const games = Object.values(spines).map(spineData => {
-            const gameDetails = Object.values(spineData.game_titles)[0]; // Get the first game from the titles object
+            const gameDetails = Object.values(spineData.game_titles)[0];
             return {
               title_id: gameDetails.id,
               name: gameDetails.name,
-              iconUrl: gameDetails.iconUrl, // Use the iconUrl from the game titles
-              spineUrls: Array.isArray(spineData.spineUrl) ? spineData.spineUrl : [spineData.spineUrl] // Ensure spineUrls is an array
+              iconUrl: gameDetails.iconUrl,
+              spineUrls: Array.isArray(spineData.spineUrl) ? spineData.spineUrl : [spineData.spineUrl]
             };
           });
 
-          // Render the games on the page
-          const gameGrid = document.getElementById("gameGrid");
+          // Sort games alphabetically
+          games.sort((a, b) => a.name.localeCompare(b.name));
 
-          games.forEach(game => {
-            const item = document.createElement("div");
-            item.className = "spine-item";
-            item.innerHTML = `
-              <a href="spine.html?game=${game.title_id}">
-                <img src="${game.iconUrl}" alt="Game icon for ${game.name}" />
-                <div class="spine-title">${game.name}</div>
-              </a>
-            `;
-            gameGrid.appendChild(item);
+          const gameGrid = document.getElementById("gameGrid");
+          const searchInput = document.getElementById("searchInput");
+
+          const renderGames = (filteredGames) => {
+            gameGrid.innerHTML = '';
+            filteredGames.forEach(game => {
+              const item = document.createElement("div");
+              item.className = "spine-item";
+              item.innerHTML = `
+                <a href="spine.html?game=${game.title_id}">
+                  <img src="${game.iconUrl}" alt="Game icon for ${game.name}" />
+                  <div class="spine-title">${game.name}</div>
+                </a>
+              `;
+              gameGrid.appendChild(item);
+            });
+          };
+
+          // Initial render
+          renderGames(games);
+
+          // Add search functionality
+          searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+            renderGames(filteredGames);
           });
         })
         .catch(error => {
