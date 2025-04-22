@@ -22,5 +22,17 @@
     "spineUrl": [
       "https://i.redd.it/a5aljc07smve1.png"
     ]
+  },
+  "0100C8B012DEA000": {
+    "game_titles": {
+      "0100C8B012DEA000": {
+        "id": "0100C8B012DEA000",
+        "name": "Temtem",
+        "iconUrl": "https://tinfoil.media/ti/0100C8B012DEA000/1024/1024/"
+      }
+    },
+    "spineUrl": [
+      "https://i.redd.it/lsxrslfzy8ve1.png"
+    ]
   }
 }
