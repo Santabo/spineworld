@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spine Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .spine-display {
+      text-align: center;
+      padding: 1rem;
+    }
+    .spine-display img {
+      max-width: 80%;
+      height: auto;
+      margin: 20px 0;
+    }
+    .carousel-button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      margin: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Spine Viewer</h1>
+    <button onclick="window.history.back()">Back to Games</button>
+  </header>
+
+  <main class="spine-display">
+    <div id="spineContainer">
+      <!-- Spine images will be dynamically injected here -->
+    </div>
+    <div>
+      <button class="carousel-button" onclick="changeSpine(-1)">Previous</button>
+      <button class="carousel-button" onclick="changeSpine(1)">Next</button>
+    </div>
+  </main>
+
+  <script>
+    let currentSpineIndex = 0;
+    let currentSpineUrls = [];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const titleId = urlParams.get("game");
+
+      if (!titleId) {
+        alert("Game not found!");
+        return;
+      }
+
+      // Fetch spines.json and find the game by titleId
+      fetch('https://spineworld.vercel.app/data/spines.json')
+        .then(response => response.json())
+        .then(spines => {
+          const gameData = spines[titleId];
+
+          if (!gameData) {
+            alert("Game data not found!");
+            return;
+          }
+
+          const gameDetails = Object.values(gameData.game_titles)[0];
+          const spineUrls = Array.isArray(gameData.spineUrl) ? gameData.spineUrl : [gameData.spineUrl];
+          currentSpineUrls = spineUrls;
+
+          // Render the first spine
+          const spineContainer = document.getElementById("spineContainer");
+          const spineImage = document.createElement("img");
+          spineImage.src = currentSpineUrls[currentSpineIndex];
+          spineContainer.appendChild(spineImage);
+        })
+        .catch(error => {
+          console.error("Error loading spines.json:", error);
+        });
+    });
+
+    // Function to change the displayed spine
+    function changeSpine(direction) {
+      currentSpineIndex += direction;
+
+      if (currentSpineIndex < 0) {
+        currentSpineIndex = currentSpineUrls.length - 1;
+      } else if (currentSpineIndex >= currentSpineUrls.length) {
+        currentSpineIndex = 0;
+      }
+
+      const spineContainer = document.getElementById("spineContainer");
+      const spineImage = spineContainer.querySelector("img");
+      spineImage.src = currentSpineUrls[currentSpineIndex];
+    }
+  </script>
+</body>
+</html>
