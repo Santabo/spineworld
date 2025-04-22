@@ -46,5 +46,17 @@
     "spineUrl": [
       "https://i.redd.it/4y700p7ev7ve1.jpeg"
     ]
+  },
+  "0100ABCD12345678": {
+    "game_titles": {
+      "0100ABCD12345678": {
+        "id": "0100ABCD12345678",
+        "name": "Holy Horror Mansion",
+        "iconUrl": "https://i.ibb.co/sd2ZR2Yh/Cropped-Image-upscaled.png"
+      }
+    },
+    "spineUrl": [
+      "https://i.ibb.co/rGqyy1MK/image.png"
+    ]
   }
 }
