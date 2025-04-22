@@ -84,5 +84,17 @@
       "https://i.ibb.co/JwqH8Rdm/image.png",
       "https://i.ibb.co/1t6YJkNy/image.png"
     ]
+  },
+  "0100150018200000": {
+    "game_titles": {
+      "0100150018200000": {
+        "id": "0100150018200000",
+        "name": "Dolphin Spirit - Ocean Mission",
+        "iconUrl": "https://tinfoil.media/ti/0100150018200000/256/256/"
+      }
+    },
+    "spineUrl": [
+      "https://i.ibb.co/vCcxRknS/image.png"
+    ]
   }
 }
