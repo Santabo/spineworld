@@ -89,7 +89,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      fetch('https://spineworld.vercel.app/data/spines.json')
+      fetch('/data/spines.json')
         .then(response => response.json())
         .then(spines => {
           const games = Object.values(spines).map(spineData => {
