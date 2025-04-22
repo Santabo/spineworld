@@ -83,8 +83,15 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
-      const response = await fetch("games.json");
-      const games = await response.json();
+      const response = await fetch("https://www.eliboa.com/switch/nsw_titles.php?export=json&title=");
+      const rawGames = await response.json();
+
+      // rawGames is an object where each key is a title ID and value contains the game info
+      const games = Object.entries(rawGames).map(([title_id, data]) => ({
+        title_id,
+        title: data.name
+      }));
+
       const gameGrid = document.getElementById("gameGrid");
       const searchBar = document.getElementById("searchBar");
 
