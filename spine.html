@@ -22,7 +22,7 @@
     .spine-display {
       text-align: center;
       padding: 1rem;
-      overflow-x: auto; /* Enable horizontal scrolling */
+      overflow-x: auto;
     }
 
     .spine-container {
@@ -57,9 +57,7 @@
   </header>
 
   <main class="spine-display">
-    <div id="spineContainer" class="spine-container">
-      <!-- Spine images will be dynamically injected here -->
-    </div>
+    <div id="spineContainer" class="spine-container"></div>
     <div class="error-message" id="errorMessage"></div>
   </main>
 
@@ -102,7 +100,7 @@
           const newHeight = windowHeight * 0.8;
 
           currentSpineUrls.forEach(url => {
-            const img = new Image();
+            const img = document.createElement("img");
             img.src = url;
             img.alt = "Spine Image";
 
@@ -114,9 +112,8 @@
               img.style.width = `${newWidth}px`;
 
               img.classList.add("visible");
+              spineContainer.appendChild(img); // Only append after load
             };
-
-            spineContainer.appendChild(img);
           });
         })
         .catch(error => {
