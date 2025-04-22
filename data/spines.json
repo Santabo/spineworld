@@ -1,8 +1,20 @@
 {
   "0100F1D014F08000": {
-    "spineUrl": "https://img-eshop.cdn.nintendo.net/i/6a157a5c30a63036c9968da4f5208686720365a68532184c3dead356c83a4e1a.jpg"
+    "game_titles": {
+      "0100F1D014F08000": {
+        "id": "0100F1D014F08000",
+        "name": "#1 Anagrams",
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/6a157a5c30a63036c9968da4f5208686720365a68532184c3dead356c83a4e1a.jpg"
+      }
+    }
   },
   "0100F1D014F08001": {
-    "spineUrl": "https://img-eshop.cdn.nintendo.net/i/1234567890abcdef.jpg"
+    "game_titles": {
+      "0100F1D014F08001": {
+        "id": "0100F1D014F08001",
+        "name": "Puzzle Paradise",
+        "iconUrl": "https://img-eshop.cdn.nintendo.net/i/1234567890abcdef.jpg"
+      }
+    }
   }
 }
