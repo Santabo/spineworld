@@ -35,12 +35,12 @@
             "https://i.ibb.co/vCcxRknS/image.png"
         ]
     },
-    "010032F01F7CC000": {
+    "0100F1D014F08000": {
         "game_titles": {
-            "010032F01F7CC000": {
-                "id": "010032F01F7CC000",
+            "0100F1D014F08000": {
+                "id": "0100F1D014F08000",
                 "name": "Five Nights at Freddy's: Help Wanted 2",
-                "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/256/256/"
+                "iconUrl": "https://tinfoil.media/ti/0100F1D014F08000/256/256/"
             }
         },
         "spineUrl": [
@@ -181,6 +181,27 @@
         },
         "spineUrl": [
             "https://i.ibb.co/jtpfjzS/image.png"
+        ]
+    },
+    "01006F8002326000": {
+        "game_titles": {
+            "01006F8002326000": {
+                "id": "01006F8002326000",
+                "name": "Animal Crossing™: New Horizons",
+                "iconUrl": "https://tinfoil.media/ti/01006F8002326000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/vCd1Bbvw/image.png",
+            "https://i.ibb.co/5h8v2Vws/image.png",
+            "https://i.ibb.co/CKYHMVQt/image.png",
+            "https://i.ibb.co/mCqrP74m/image.png",
+            "https://i.ibb.co/R4YMLhm4/image.png",
+            "https://i.ibb.co/KnBF9WL/image.png",
+            "https://i.ibb.co/6cYs8hws/image.png",
+            "https://i.ibb.co/GQV2s3Hb/image.png",
+            "https://i.ibb.co/BXJQ0zc/image.png",
+            "https://i.ibb.co/k6cfDx8H/image.png"
         ]
     }
 }
