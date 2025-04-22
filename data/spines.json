@@ -1,16 +1,4 @@
 {
-  "0100F1D014F08000": {
-    "game_titles": {
-      "0100F1D014F08000": {
-        "id": "0100F1D014F08000",
-        "name": "#1 Anagrams",
-        "iconUrl": "https://tinfoil.media/ti/0100F1D014F08000/1024/1024/"
-      }
-    },
-    "spineUrl": [
-      "https://img-eshop.cdn.nintendo.net/i/6a157a5c30a63036c9968da4f5208686720365a68532184c3dead356c83a4e1a.jpg"
-    ]
-  },
   "0100F1D014F08001": {
     "game_titles": {
       "0100F1D014F08001": {
@@ -21,6 +9,18 @@
     },
     "spineUrl": [
       "https://i.redd.it/96f1n393umve1.png"
+    ]
+  },
+  "0100F1D014F08000": {
+    "game_titles": {
+      "0100F1D014F08000": {
+        "id": "010032F01F7CC000",
+        "name": "Five Nights at Freddy's: Help Wanted 2",
+        "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/1024/1024/"
+      }
+    },
+    "spineUrl": [
+      "https://i.redd.it/a5aljc07smve1.png"
     ]
   }
 }
