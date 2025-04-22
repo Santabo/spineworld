@@ -20,11 +20,17 @@
     .spine-display {
       text-align: center;
       padding: 1rem;
+      overflow-x: scroll; /* Enable horizontal scrolling */
     }
-    .spine-display img {
-      max-width: 80%;
-      height: auto;
-      margin: 20px 0;
+    .spine-container {
+      display: flex; /* Display spines side by side */
+      gap: 20px; /* Space between images */
+      justify-content: center;
+    }
+    .spine-container img {
+      width: 150px; /* Fixed width */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px;
     }
     .carousel-button {
       background-color: #333;
@@ -48,12 +54,12 @@
   </header>
 
   <main class="spine-display">
-    <div id="spineContainer">
+    <div id="spineContainer" class="spine-container">
       <!-- Spine images will be dynamically injected here -->
     </div>
-    <div>
-      <button class="carousel-button" onclick="changeSpine(-1)">Previous</button>
-      <button class="carousel-button" onclick="changeSpine(1)">Next</button>
+    <div class="carousel-buttons">
+      <button class="carousel-button" onclick="scrollSpines(-1)">Previous</button>
+      <button class="carousel-button" onclick="scrollSpines(1)">Next</button>
     </div>
     <div class="error-message" id="errorMessage"></div> <!-- Error message container -->
   </main>
@@ -95,11 +101,15 @@
           const spineUrls = Array.isArray(gameData.spineUrl) ? gameData.spineUrl : [gameData.spineUrl];
           currentSpineUrls = spineUrls;
 
-          // Render the first spine
+          // Render all spines
           const spineContainer = document.getElementById("spineContainer");
-          const spineImage = document.createElement("img");
-          spineImage.src = currentSpineUrls[currentSpineIndex];
-          spineContainer.appendChild(spineImage);
+          spineContainer.innerHTML = ""; // Clear existing content
+          currentSpineUrls.forEach((url, index) => {
+            const spineImage = document.createElement("img");
+            spineImage.src = url;
+            spineImage.alt = `Spine ${index + 1}`;
+            spineContainer.appendChild(spineImage);
+          });
         })
         .catch(error => {
           console.error("Error loading spines.json:", error);
@@ -113,19 +123,12 @@
       errorMessageContainer.textContent = message;
     }
 
-    // Function to change the displayed spine
-    function changeSpine(direction) {
-      currentSpineIndex += direction;
-
-      if (currentSpineIndex < 0) {
-        currentSpineIndex = currentSpineUrls.length - 1;
-      } else if (currentSpineIndex >= currentSpineUrls.length) {
-        currentSpineIndex = 0;
-      }
-
+    // Function to scroll through spines
+    function scrollSpines(direction) {
       const spineContainer = document.getElementById("spineContainer");
-      const spineImage = spineContainer.querySelector("img");
-      spineImage.src = currentSpineUrls[currentSpineIndex];
+
+      // Calculate new scroll position
+      spineContainer.scrollLeft += direction * 160; // Adjust the scroll amount as needed
     }
   </script>
 </body>
