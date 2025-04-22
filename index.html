@@ -11,36 +11,22 @@
       background: #f0f0f0;
       color: #333;
     }
-
     header {
       background-color: #222;
       color: white;
       padding: 1rem;
       text-align: center;
     }
-
     h1 {
       margin: 0;
       font-size: 2rem;
     }
-
-    #searchBar {
-      margin-top: 1rem;
-      padding: 0.5rem;
-      width: 80%;
-      max-width: 400px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 4px;
-    }
-
     .spine-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 1rem;
       padding: 1rem;
     }
-
     .spine-item {
       background: white;
       border-radius: 8px;
@@ -51,52 +37,22 @@
       align-items: center;
       text-align: center;
       padding: 1rem;
-      transition: transform 0.2s;
-      height: 250px;
     }
-
-    .spine-item:hover {
-      transform: scale(1.05);
-    }
-
     .spine-item img {
       width: 120px;
       height: 120px;
       object-fit: contain;
       margin-bottom: 10px;
     }
-
     .spine-title {
       font-size: 0.9rem;
       word-wrap: break-word;
-      padding-top: 5px;
       max-width: 120px;
       text-align: center;
     }
-
     .spine-grid a {
       text-decoration: none;
       color: inherit;
-    }
-
-    .spine-display {
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .spine-display img {
-      max-width: 80%;
-      height: auto;
-      margin: 20px 0;
-    }
-
-    .carousel-button {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 0.5rem;
-      margin: 1rem;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -104,130 +60,47 @@
   <header>
     <h1>Spine World</h1>
     <p>Explore a collection of game spines from Nintendo Switch and more!</p>
-    <input type="text" id="searchBar" placeholder="Search for a game..." />
   </header>
 
   <main class="spine-grid" id="gameGrid">
     <!-- Game cards will be dynamically injected here -->
   </main>
 
-  <!-- Spine display section (hidden by default) -->
-  <div class="spine-display" id="spineDisplay" style="display: none;">
-    <button onclick="closeSpineDisplay()">Close</button>
-    <h2>Spine View</h2>
-    <div id="carouselContainer">
-      <button class="carousel-button" onclick="changeSpine(-1)">Previous</button>
-      <img id="spineImage" src="" alt="Spine" />
-      <button class="carousel-button" onclick="changeSpine(1)">Next</button>
-    </div>
-  </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      try {
-        // Fetch spines.json data
-        fetch('https://spineworld.vercel.app/data/spines.json')
-          .then(response => response.json())
-          .then(spines => {
-            console.log("Fetched spines.json:", spines); // Debug log
-
-            // Check if the spines.json is valid and has data
-            if (!spines || Object.keys(spines).length === 0) {
-              console.log("No spines data available.");
-              return;
-            }
-
-            // Extract and map games from the spines.json data
-            const games = Object.values(spines).map(spineData => {
-              const gameDetails = Object.values(spineData.game_titles)[0]; // Get the first game from the titles object
-              return {
-                title_id: gameDetails.id,
-                name: gameDetails.name,
-                iconUrl: gameDetails.iconUrl, // Use the iconUrl from the game titles
-                spineUrls: Array.isArray(spineData.spineUrl) ? spineData.spineUrl : [spineData.spineUrl] // Ensure spineUrls is an array
-              };
-            });
-
-            console.log("Mapped games:", games); // Debug log
-
-            if (games.length === 0) {
-              console.log("No games to display.");
-              return;
-            }
-
-            const gameGrid = document.getElementById("gameGrid");
-            const searchBar = document.getElementById("searchBar");
-
-            // Render the games on the page
-            function renderGames(filteredGames) {
-              gameGrid.innerHTML = ""; // Clear any previous game cards
-              filteredGames.forEach(game => {
-                const item = document.createElement("div");
-                item.className = "spine-item";
-                item.innerHTML = ` 
-                  <a href="#" onclick="showSpine(${JSON.stringify(game.spineUrls)})">
-                    <img src="${game.iconUrl}" alt="Game icon for ${game.name}" />
-                    <div class="spine-title">${game.name}</div>
-                  </a>
-                `;
-                gameGrid.appendChild(item);
-              });
-            }
-
-            // Initial render of all valid games
-            renderGames(games);
-
-            // Filter games based on the search input
-            searchBar.addEventListener("input", () => {
-              const query = searchBar.value.toLowerCase();
-              const filtered = games.filter(game =>
-                game.name.toLowerCase().includes(query)
-              );
-              renderGames(filtered);
-            });
-
-          })
-          .catch(error => {
-            console.error("Error loading spines.json:", error);
+      // Fetch spines.json data
+      fetch('https://spineworld.vercel.app/data/spines.json')
+        .then(response => response.json())
+        .then(spines => {
+          const games = Object.values(spines).map(spineData => {
+            const gameDetails = Object.values(spineData.game_titles)[0]; // Get the first game from the titles object
+            return {
+              title_id: gameDetails.id,
+              name: gameDetails.name,
+              iconUrl: gameDetails.iconUrl, // Use the iconUrl from the game titles
+              spineUrls: Array.isArray(spineData.spineUrl) ? spineData.spineUrl : [spineData.spineUrl] // Ensure spineUrls is an array
+            };
           });
-      } catch (error) {
-        console.error("Error loading game data:", error);
-      }
+
+          // Render the games on the page
+          const gameGrid = document.getElementById("gameGrid");
+
+          games.forEach(game => {
+            const item = document.createElement("div");
+            item.className = "spine-item";
+            item.innerHTML = `
+              <a href="spine.html?game=${game.title_id}">
+                <img src="${game.iconUrl}" alt="Game icon for ${game.name}" />
+                <div class="spine-title">${game.name}</div>
+              </a>
+            `;
+            gameGrid.appendChild(item);
+          });
+        })
+        .catch(error => {
+          console.error("Error loading spines.json:", error);
+        });
     });
-
-    // Global variable to track the current spine index
-    let currentSpineIndex = 0;
-    let currentSpineUrls = [];
-
-    // Function to show the spine images when clicked
-    function showSpine(spineUrls) {
-      currentSpineUrls = spineUrls; // Store the array of spine URLs
-      currentSpineIndex = 0; // Start at the first spine
-      const spineDisplay = document.getElementById("spineDisplay");
-      const spineImage = document.getElementById("spineImage");
-      spineImage.src = currentSpineUrls[currentSpineIndex];
-      spineDisplay.style.display = "block"; // Show the spine display section
-      history.pushState(null, null, "#spine"); // Update URL when viewing spines
-    }
-
-    // Function to change the displayed spine in the carousel
-    function changeSpine(direction) {
-      currentSpineIndex += direction;
-      if (currentSpineIndex < 0) {
-        currentSpineIndex = currentSpineUrls.length - 1;
-      } else if (currentSpineIndex >= currentSpineUrls.length) {
-        currentSpineIndex = 0;
-      }
-      const spineImage = document.getElementById("spineImage");
-      spineImage.src = currentSpineUrls[currentSpineIndex];
-    }
-
-    // Function to close the spine display
-    function closeSpineDisplay() {
-      const spineDisplay = document.getElementById("spineDisplay");
-      spineDisplay.style.display = "none"; // Hide the spine display section
-      history.pushState(null, null, ""); // Reset URL
-    }
   </script>
 </body>
 </html>
