@@ -1,4 +1,28 @@
 {
+  "0100300012F2A000": {
+    "game_titles": {
+      "0100300012F2A000": {
+        "id": "0100300012F2A000",
+        "name": "Advance Wars™ 1+2: Re-Boot Camp",
+        "iconUrl": "https://tinfoil.media/ti/0100300012F2A000/256/256/"
+      }
+    },
+    "spineUrl": [
+      "https://i.ibb.co/60HmjJ78/image.png"
+    ]
+  },
+  "0100B040195F6000": {
+    "game_titles": {
+      "0100B040195F6000": {
+        "id": "0100B040195F6000",
+        "name": "Beeny",
+        "iconUrl": "https://tinfoil.media/ti/0100B040195F6000/256/256/"
+      }
+    },
+    "spineUrl": [
+      "https://i.ibb.co/HLvJWNhL/image.png"
+    ]
+  },
   "0100150018200000": {
     "game_titles": {
       "0100150018200000": {
