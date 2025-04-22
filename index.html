@@ -83,50 +83,43 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
-      const spineJson = "spines.json"; // Assuming you're providing the title IDs from this file
-      const response = await fetch(spineJson);
-      const titleIds = await response.json(); // Fetches an array or object of title IDs
+      // Fetch spines.json
+      const response = await fetch("data/spines.json");
+      const spines = await response.json();
 
-      const games = [];
-      
-      // Fetch game data for each title ID
-      for (const titleId of titleIds) {
-        const gameResponse = await fetch(`https://www.eliboa.com/switch/nsw_titles.php?export=json&title=${titleId}`);
-        const gameData = await gameResponse.json();
-        
-        const gameInfo = gameData.game_titles[titleId];
-        
-        games.push({
-          title_id: gameInfo.id,
-          title: gameInfo.name,
-          iconUrl: gameInfo.iconUrl
-        });
-      }
+      // Convert the spines data to an array of games with their title ID and spineUrl
+      const games = Object.entries(spines).map(([title_id, data]) => ({
+        title_id,
+        spineUrl: data.spineUrl
+      }));
 
       const gameGrid = document.getElementById("gameGrid");
       const searchBar = document.getElementById("searchBar");
 
+      // Render the games on the page
       function renderGames(filteredGames) {
-        gameGrid.innerHTML = "";
+        gameGrid.innerHTML = ""; // Clear any previous game cards
         filteredGames.forEach(game => {
           const item = document.createElement("div");
           item.className = "spine-item";
           item.innerHTML = `
             <a href="game.html?id=${game.title_id}">
-              <img src="${game.iconUrl}" alt="${game.title}">
-              <div class="spine-title">${game.title}</div>
+              <img src="${game.spineUrl}" alt="Game spine image for ${game.title_id}" />
+              <div class="spine-title">${game.title_id}</div>
             </a>
           `;
           gameGrid.appendChild(item);
         });
       }
 
+      // Initial render of all games
       renderGames(games);
 
+      // Filter games based on the search input
       searchBar.addEventListener("input", () => {
         const query = searchBar.value.toLowerCase();
         const filtered = games.filter(game =>
-          game.title.toLowerCase().includes(query)
+          game.title_id.toLowerCase().includes(query)
         );
         renderGames(filtered);
       });
