@@ -24,9 +24,19 @@
       font-size: 2rem;
     }
 
+    #searchBar {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+    }
+
     .spine-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 1rem;
       padding: 1rem;
     }
@@ -39,18 +49,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
       padding: 0.5rem;
+      transition: transform 0.2s;
+    }
+
+    .spine-item:hover {
+      transform: scale(1.05);
     }
 
     .spine-item img {
       max-height: 150px;
+      width: auto;
       object-fit: contain;
     }
 
     .spine-title {
       margin-top: 0.5rem;
       font-size: 0.9rem;
-      text-align: center;
     }
   </style>
 </head>
@@ -58,22 +74,45 @@
   <header>
     <h1>Spine World</h1>
     <p>Explore a collection of game spines from Nintendo Switch and more!</p>
+    <input type="text" id="searchBar" placeholder="Search for a game..." />
   </header>
 
-  <main class="spine-grid">
-    <div class="spine-item">
-      <img src="images/switch1.jpg" alt="Game Spine 1">
-      <div class="spine-title">Super Mario Odyssey</div>
-    </div>
-    <div class="spine-item">
-      <img src="images/switch2.jpg" alt="Game Spine 2">
-      <div class="spine-title">The Legend of Zelda: BOTW</div>
-    </div>
-    <div class="spine-item">
-      <img src="images/switch3.jpg" alt="Game Spine 3">
-      <div class="spine-title">Splatoon 3</div>
-    </div>
-    <!-- Add more spines here -->
+  <main class="spine-grid" id="gameGrid">
+    <!-- Game cards will be dynamically injected here -->
   </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const response = await fetch("games.json");
+      const games = await response.json();
+      const gameGrid = document.getElementById("gameGrid");
+      const searchBar = document.getElementById("searchBar");
+
+      function renderGames(filteredGames) {
+        gameGrid.innerHTML = "";
+        filteredGames.forEach(game => {
+          const item = document.createElement("div");
+          item.className = "spine-item";
+          item.innerHTML = `
+            <a href="game.html?id=${game.title_id}">
+              <img src="https://tinfoil.media/ti/${game.title_id}/1024/1024/" alt="${game.title}">
+              <div class="spine-title">${game.title}</div>
+            </a>
+          `;
+          gameGrid.appendChild(item);
+        });
+      }
+
+      renderGames(games);
+
+      searchBar.addEventListener("input", () => {
+        const query = searchBar.value.toLowerCase();
+        const filtered = games.filter(game =>
+          game.title.toLowerCase().includes(query)
+        );
+        renderGames(filtered);
+      });
+    });
+  </script>
 </body>
 </html>
