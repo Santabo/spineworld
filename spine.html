@@ -62,8 +62,6 @@
   </main>
 
   <script>
-    let currentSpineUrls = [];
-
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);
       const titleId = urlParams.get("game");
@@ -90,42 +88,53 @@
             return;
           }
 
-          const spineUrls = Array.isArray(gameData.spineUrl) ? gameData.spineUrl : [gameData.spineUrl];
-          currentSpineUrls = spineUrls;
+          const currentSpineUrls = Array.isArray(gameData.spineUrl) ? gameData.spineUrl : [gameData.spineUrl];
+          const savedSpineUrls = JSON.parse(localStorage.getItem(`spines-${titleId}`) || '[]');
 
-          const spineContainer = document.getElementById("spineContainer");
-          spineContainer.innerHTML = "";
+          const hasChanged = JSON.stringify(currentSpineUrls) !== JSON.stringify(savedSpineUrls);
 
-          const windowHeight = window.innerHeight;
-          const newHeight = windowHeight * 0.8;
-
-          currentSpineUrls.forEach(url => {
-            const img = document.createElement("img");
-            img.src = url;
-            img.alt = "Spine Image";
-
-            img.onload = () => {
-              const aspectRatio = img.naturalWidth / img.naturalHeight;
-              const newWidth = newHeight * aspectRatio;
-
-              img.style.height = `${newHeight}px`;
-              img.style.width = `${newWidth}px`;
-
-              img.classList.add("visible");
-              spineContainer.appendChild(img); // Only append after load
-            };
-          });
+          if (hasChanged) {
+            localStorage.setItem(`spines-${titleId}`, JSON.stringify(currentSpineUrls));
+            renderSpines(currentSpineUrls);
+          } else {
+            console.log("No changes detected for spine URLs. Skipping re-render.");
+          }
         })
         .catch(error => {
           console.error("Error loading spines.json:", error);
           displayError("An error occurred while loading the game data.");
         });
-    });
 
-    function displayError(message) {
-      const errorMessageContainer = document.getElementById("errorMessage");
-      errorMessageContainer.textContent = message;
-    }
+      function renderSpines(spineUrls) {
+        const spineContainer = document.getElementById("spineContainer");
+        spineContainer.innerHTML = "";
+
+        const windowHeight = window.innerHeight;
+        const newHeight = windowHeight * 0.8;
+
+        spineUrls.forEach(url => {
+          const img = document.createElement("img");
+          img.src = `${url}?v=${Date.now()}`;
+          img.alt = "Spine Image";
+
+          img.onload = () => {
+            const aspectRatio = img.naturalWidth / img.naturalHeight;
+            const newWidth = newHeight * aspectRatio;
+
+            img.style.height = `${newHeight}px`;
+            img.style.width = `${newWidth}px`;
+
+            img.classList.add("visible");
+            spineContainer.appendChild(img);
+          };
+        });
+      }
+
+      function displayError(message) {
+        const errorMessageContainer = document.getElementById("errorMessage");
+        errorMessageContainer.textContent = message;
+      }
+    });
   </script>
 </body>
 </html>
