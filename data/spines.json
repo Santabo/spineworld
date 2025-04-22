@@ -1,4 +1,16 @@
 {
+  "0100F1D014F08000": {
+    "game_titles": {
+      "0100F1D014F08000": {
+        "id": "010032F01F7CC000",
+        "name": "Five Nights at Freddy's: Help Wanted 2",
+        "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/256/256/"
+      }
+    },
+    "spineUrl": [
+      "https://i.redd.it/a5aljc07smve1.png"
+    ]
+  },
   "0100F1D014F08001": {
     "game_titles": {
       "0100F1D014F08001": {
@@ -11,16 +23,16 @@
       "https://i.redd.it/96f1n393umve1.png"
     ]
   },
-  "0100F1D014F08000": {
+  "010064C01A9BA000": {
     "game_titles": {
-      "0100F1D014F08000": {
-        "id": "010032F01F7CC000",
-        "name": "Five Nights at Freddy's: Help Wanted 2",
-        "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/256/256/"
+      "010064C01A9BA000": {
+        "id": "010064C01A9BA000",
+        "name": "Tamagotchi Plaza",
+        "iconUrl": "https://tinfoil.media/ti/010064C01A9BA000/256/256/"
       }
     },
     "spineUrl": [
-      "https://i.redd.it/a5aljc07smve1.png"
+      "https://i.ibb.co/YTXCV3nM/image.png"
     ]
   },
   "0100C8B012DEA000": {
