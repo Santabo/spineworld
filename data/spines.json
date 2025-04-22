@@ -1,7 +1,8 @@
-[
-  "0100F1D014F08000",
-  "0100F1D014F04000",
-  "0100F1D014F08001",
-  "0100F1D014F02000",
-  "0100F1D014F05000"
-]
+{
+  "0100F1D014F08000": {
+    "spineUrl": "https://img-eshop.cdn.nintendo.net/i/6a157a5c30a63036c9968da4f5208686720365a68532184c3dead356c83a4e1a.jpg"
+  },
+  "0100F1D014F08001": {
+    "spineUrl": "https://img-eshop.cdn.nintendo.net/i/1234567890abcdef.jpg"
+  }
+}
