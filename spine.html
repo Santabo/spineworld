@@ -75,7 +75,16 @@
       fetch('https://spineworld.vercel.app/data/spines.json')
         .then(response => response.json())
         .then(spines => {
-          const gameData = spines[titleId];
+          // Find the game data by matching the title ID
+          let gameData = null;
+          
+          // Loop through the spines object to find the game data
+          for (const key in spines) {
+            if (spines[key].game_titles[key] && spines[key].game_titles[key].id === titleId) {
+              gameData = spines[key];
+              break;
+            }
+          }
 
           if (!gameData) {
             displayError("Game data not found for the selected title.");
