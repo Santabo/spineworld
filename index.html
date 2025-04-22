@@ -50,8 +50,9 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 0.5rem;
+      padding: 1rem;
       transition: transform 0.2s;
+      height: 250px; /* Prevent items from shrinking */
     }
 
     .spine-item:hover {
@@ -59,14 +60,23 @@
     }
 
     .spine-item img {
-      width: 100px; /* Fixed width for 1:1 aspect ratio */
-      height: 100px; /* Fixed height for 1:1 aspect ratio */
-      object-fit: cover; /* Ensures image fits without distortion */
+      width: 120px; /* Fixed width for the image */
+      height: 120px; /* Fixed height for the image */
+      object-fit: contain; /* Prevent cropping and distortions */
+      margin-bottom: 10px; /* Add space between image and title */
     }
 
     .spine-title {
-      margin-top: 0.5rem;
       font-size: 0.9rem;
+      word-wrap: break-word;
+      padding-top: 5px;
+      max-width: 120px;
+      text-align: center;
+    }
+
+    .spine-grid a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
@@ -88,10 +98,21 @@
       const spines = await response.json();
 
       // Convert the spines data to an array of games with their title ID and spineUrl
-      const games = Object.entries(spines).map(([title_id, data]) => ({
-        title_id,
-        spineUrl: data.spineUrl
-      }));
+      const games = await Promise.all(
+        Object.entries(spines).map(async ([title_id, data]) => {
+          // Fetch the game info from the API using the title ID
+          const gameResponse = await fetch(`https://www.eliboa.com/switch/nsw_titles.php?export=json&title=${title_id}`);
+          const gameData = await gameResponse.json();
+          
+          // Extract game title and spine URL
+          const gameInfo = gameData.game_titles[title_id];
+          return {
+            title_id,
+            name: gameInfo.name,
+            spineUrl: gameInfo.iconUrl
+          };
+        })
+      );
 
       const gameGrid = document.getElementById("gameGrid");
       const searchBar = document.getElementById("searchBar");
@@ -104,8 +125,8 @@
           item.className = "spine-item";
           item.innerHTML = `
             <a href="game.html?id=${game.title_id}">
-              <img src="${game.spineUrl}" alt="Game spine image for ${game.title_id}" />
-              <div class="spine-title">${game.title_id}</div>
+              <img src="${game.spineUrl}" alt="Game icon for ${game.name}" />
+              <div class="spine-title">${game.name}</div>
             </a>
           `;
           gameGrid.appendChild(item);
@@ -119,7 +140,7 @@
       searchBar.addEventListener("input", () => {
         const query = searchBar.value.toLowerCase();
         const filtered = games.filter(game =>
-          game.title_id.toLowerCase().includes(query)
+          game.name.toLowerCase().includes(query)
         );
         renderGames(filtered);
       });
