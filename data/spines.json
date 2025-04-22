@@ -1,149 +1,161 @@
 {
-  "0100300012F2A000": {
-    "game_titles": {
-      "0100300012F2A000": {
-        "id": "0100300012F2A000",
-        "name": "Advance Wars™ 1+2: Re-Boot Camp",
-        "iconUrl": "https://tinfoil.media/ti/0100300012F2A000/256/256/"
-      }
+    "0100300012F2A000": {
+        "game_titles": {
+            "0100300012F2A000": {
+                "id": "0100300012F2A000",
+                "name": "Advance Wars™ 1+2: Re-Boot Camp",
+                "iconUrl": "https://tinfoil.media/ti/0100300012F2A000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/60HmjJ78/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/60HmjJ78/image.png"
-    ]
-  },
-  "0100B040195F6000": {
-    "game_titles": {
-      "0100B040195F6000": {
-        "id": "0100B040195F6000",
-        "name": "Beeny",
-        "iconUrl": "https://tinfoil.media/ti/0100B040195F6000/256/256/"
-      }
+    "0100B040195F6000": {
+        "game_titles": {
+            "0100B040195F6000": {
+                "id": "0100B040195F6000",
+                "name": "Beeny",
+                "iconUrl": "https://tinfoil.media/ti/0100B040195F6000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/HLvJWNhL/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/HLvJWNhL/image.png"
-    ]
-  },
-  "0100150018200000": {
-    "game_titles": {
-      "0100150018200000": {
-        "id": "0100150018200000",
-        "name": "Dolphin Spirit - Ocean Mission",
-        "iconUrl": "https://tinfoil.media/ti/0100150018200000/256/256/"
-      }
+    "0100150018200000": {
+        "game_titles": {
+            "0100150018200000": {
+                "id": "0100150018200000",
+                "name": "Dolphin Spirit - Ocean Mission",
+                "iconUrl": "https://tinfoil.media/ti/0100150018200000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/vCcxRknS/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/vCcxRknS/image.png"
-    ]
-  },
-  "0100F1D014F08000": {
-    "game_titles": {
-      "0100F1D014F08000": {
-        "id": "010032F01F7CC000",
-        "name": "Five Nights at Freddy's: Help Wanted 2",
-        "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/256/256/"
-      }
+    "0100F1D014F08000": {
+        "game_titles": {
+            "0100F1D014F08000": {
+                "id": "010032F01F7CC000",
+                "name": "Five Nights at Freddy's: Help Wanted 2",
+                "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.redd.it/a5aljc07smve1.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.redd.it/a5aljc07smve1.png"
-    ]
-  },
-  "0100F1D014F08001": {
-    "game_titles": {
-      "0100F1D014F08001": {
-        "id": "010015F01C8EC000",
-        "name": "Five Nights at Freddy's: Into the Pit",
-        "iconUrl": "https://tinfoil.media/ti/010015F01C8EC000/256/256/"
-      }
+    "0100F1D014F08001": {
+        "game_titles": {
+            "0100F1D014F08001": {
+                "id": "010015F01C8EC000",
+                "name": "Five Nights at Freddy's: Into the Pit",
+                "iconUrl": "https://tinfoil.media/ti/010015F01C8EC000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.redd.it/96f1n393umve1.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.redd.it/96f1n393umve1.png"
-    ]
-  },
-  "0100ABCD12345678": {
-    "game_titles": {
-      "0100ABCD12345678": {
-        "id": "0100ABCD12345678",
-        "name": "Holy Horror Mansion",
-        "iconUrl": "https://i.ibb.co/5xsHhMZM/Cropped-Image-upscaled-1.png"
-      }
+    "0100ABCD12345678": {
+        "game_titles": {
+            "0100ABCD12345678": {
+                "id": "0100ABCD12345678",
+                "name": "Holy Horror Mansion",
+                "iconUrl": "https://i.ibb.co/5xsHhMZM/Cropped-Image-upscaled-1.png"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/rGqyy1MK/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/rGqyy1MK/image.png"
-    ]
-  },
-  "01006FE013472000": {
-    "game_titles": {
-      "01006FE013472000": {
-        "id": "01006FE013472000",
-        "name": "Mario Party™ Superstars",
-        "iconUrl": "https://tinfoil.media/ti/01006FE013472000/256/256/"
-      }
+    "01006FE013472000": {
+        "game_titles": {
+            "01006FE013472000": {
+                "id": "01006FE013472000",
+                "name": "Mario Party™ Superstars",
+                "iconUrl": "https://tinfoil.media/ti/01006FE013472000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.redd.it/4y700p7ev7ve1.jpeg",
+            "https://i.ibb.co/xKTrfHxp/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.redd.it/4y700p7ev7ve1.jpeg",
-      "https://i.ibb.co/xKTrfHxp/image.png"
-    ]
-  },
-  "010082001A646000": {
-    "game_titles": {
-      "010082001A646000": {
-        "id": "010082001A646000",
-        "name": "Minabo - A Walk Through Life",
-        "iconUrl": "https://tinfoil.media/ti/010082001A646000/256/256/"
-      }
+    "010082001A646000": {
+        "game_titles": {
+            "010082001A646000": {
+                "id": "010082001A646000",
+                "name": "Minabo - A Walk Through Life",
+                "iconUrl": "https://tinfoil.media/ti/010082001A646000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/JwqH8Rdm/image.png",
+            "https://i.ibb.co/1t6YJkNy/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/JwqH8Rdm/image.png",
-      "https://i.ibb.co/1t6YJkNy/image.png"
-    ]
-  },
-  "0100D2F00D5C0000": {
-    "game_titles": {
-      "0100D2F00D5C0000": {
-        "id": "0100D2F00D5C0000",
-        "name": "Nintendo Switch™ Sports",
-        "iconUrl": "https://tinfoil.media/ti/0100D2F00D5C0000/256/256/"
-      }
+    "0100D2F00D5C0000": {
+        "game_titles": {
+            "0100D2F00D5C0000": {
+                "id": "0100D2F00D5C0000",
+                "name": "Nintendo Switch™ Sports",
+                "iconUrl": "https://tinfoil.media/ti/0100D2F00D5C0000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/xqMpMgMM/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/xqMpMgMM/image.png"
-    ]
-  },
-  "010064C01A9BA000": {
-    "game_titles": {
-      "010064C01A9BA000": {
-        "id": "010064C01A9BA000",
-        "name": "Tamagotchi Plaza",
-        "iconUrl": "https://tinfoil.media/ti/010064C01A9BA000/256/256/"
-      }
+    "010064C01A9BA000": {
+        "game_titles": {
+            "010064C01A9BA000": {
+                "id": "010064C01A9BA000",
+                "name": "Tamagotchi Plaza",
+                "iconUrl": "https://tinfoil.media/ti/010064C01A9BA000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/YTXCV3nM/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/YTXCV3nM/image.png"
-    ]
-  },
-  "0100C8B012DEA000": {
-    "game_titles": {
-      "0100C8B012DEA000": {
-        "id": "0100C8B012DEA000",
-        "name": "Temtem",
-        "iconUrl": "https://tinfoil.media/ti/0100C8B012DEA000/256/256/"
-      }
+    "0100C8B012DEA000": {
+        "game_titles": {
+            "0100C8B012DEA000": {
+                "id": "0100C8B012DEA000",
+                "name": "Temtem",
+                "iconUrl": "https://tinfoil.media/ti/0100C8B012DEA000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.redd.it/lsxrslfzy8ve1.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.redd.it/lsxrslfzy8ve1.png"
-    ]
-  },
-  "01005C600AC68000": {
-    "game_titles": {
-      "01005C600AC68000": {
-        "id": "01005C600AC68000",
-        "name": "Valkyria Chronicles 4",
-        "iconUrl": "https://tinfoil.media/ti/01005C600AC68000/256/256/"
-      }
+    "01005C600AC68000": {
+        "game_titles": {
+            "01005C600AC68000": {
+                "id": "01005C600AC68000",
+                "name": "Valkyria Chronicles 4",
+                "iconUrl": "https://tinfoil.media/ti/01005C600AC68000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/TM98TCv1/image.png",
+            "https://i.ibb.co/LDTVyWgX/image.png"
+        ]
     },
-    "spineUrl": [
-      "https://i.ibb.co/TM98TCv1/image.png",
-      "https://i.ibb.co/LDTVyWgX/image.png"
-    ]
-  }
+    "010027901C89D001": {
+        "game_titles": {
+            "010027901C89D001": {
+                "id": "010027901C89D001",
+                "name": "Hello Kitty Island Adventure - Deluxe Edition",
+                "iconUrl": "https://tinfoil.media/ti/010027901C89D001/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/jtpfjzS/image.png"
+        ]
+    }
 }
