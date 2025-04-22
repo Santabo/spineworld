@@ -38,9 +38,9 @@
     "0100F1D014F08000": {
         "game_titles": {
             "0100F1D014F08000": {
-                "id": "010032F01F7CC000",
+                "id": "0100F1D014F08000",
                 "name": "Five Nights at Freddy's: Help Wanted 2",
-                "iconUrl": "https://tinfoil.media/ti/010032F01F7CC000/256/256/"
+                "iconUrl": "https://tinfoil.media/ti/0100F1D014F08000/256/256/"
             }
         },
         "spineUrl": [
@@ -50,9 +50,9 @@
     "0100F1D014F08001": {
         "game_titles": {
             "0100F1D014F08001": {
-                "id": "010015F01C8EC000",
+                "id": "0100F1D014F08001",
                 "name": "Five Nights at Freddy's: Into the Pit",
-                "iconUrl": "https://tinfoil.media/ti/010015F01C8EC000/256/256/"
+                "iconUrl": "https://tinfoil.media/ti/0100F1D014F08001/256/256/"
             }
         },
         "spineUrl": [
@@ -98,13 +98,15 @@
     },
     "0100AB401F136000": {
         "game_titles": {
-            "en": {
+            "0100AB401F136000": {
                 "id": "0100AB401F136000",
                 "name": "Guilty Gear -Strive- Nintendo Switch Edition",
                 "iconUrl": "https://tinfoil.media/ti/0100AB401F136000/256/256/"
             }
         },
-        "spineUrl": "https://i.ibb.co/23s5bCLr/image.png"
+        "spineUrl": [
+            "https://i.ibb.co/23s5bCLr/image.png"
+        ]
     },
     "010082001A646000": {
         "game_titles": {
