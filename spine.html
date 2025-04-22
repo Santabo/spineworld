@@ -71,7 +71,7 @@
         return;
       }
 
-      fetch('https://spineworld.vercel.app/data/spines.json')
+      fetch('/data/spines.json')
         .then(response => response.json())
         .then(spines => {
           let gameData = null;
