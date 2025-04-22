@@ -34,4 +34,46 @@
     .spine-item {
       background: white;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+    }
+
+    .spine-item img {
+      max-height: 150px;
+      object-fit: contain;
+    }
+
+    .spine-title {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Spine World</h1>
+    <p>Explore a collection of game spines from Nintendo Switch and more!</p>
+  </header>
+
+  <main class="spine-grid">
+    <div class="spine-item">
+      <img src="images/switch1.jpg" alt="Game Spine 1">
+      <div class="spine-title">Super Mario Odyssey</div>
+    </div>
+    <div class="spine-item">
+      <img src="images/switch2.jpg" alt="Game Spine 2">
+      <div class="spine-title">The Legend of Zelda: BOTW</div>
+    </div>
+    <div class="spine-item">
+      <img src="images/switch3.jpg" alt="Game Spine 3">
+      <div class="spine-title">Splatoon 3</div>
+    </div>
+    <!-- Add more spines here -->
+  </main>
+</body>
+</html>
