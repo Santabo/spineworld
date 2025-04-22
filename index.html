@@ -59,9 +59,9 @@
     }
 
     .spine-item img {
-      max-height: 150px;
-      width: auto;
-      object-fit: contain;
+      width: 100px; /* Fixed width for 1:1 aspect ratio */
+      height: 100px; /* Fixed height for 1:1 aspect ratio */
+      object-fit: cover; /* Ensures image fits without distortion */
     }
 
     .spine-title {
