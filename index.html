@@ -207,6 +207,7 @@
       const spineImage = document.getElementById("spineImage");
       spineImage.src = currentSpineUrls[currentSpineIndex];
       spineDisplay.style.display = "block"; // Show the spine display section
+      history.pushState(null, null, "#spine"); // Update URL when viewing spines
     }
 
     // Function to change the displayed spine in the carousel
@@ -225,6 +226,7 @@
     function closeSpineDisplay() {
       const spineDisplay = document.getElementById("spineDisplay");
       spineDisplay.style.display = "none"; // Hide the spine display section
+      history.pushState(null, null, ""); // Reset URL
     }
   </script>
 </body>
