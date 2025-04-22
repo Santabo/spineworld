@@ -71,5 +71,18 @@
     "spineUrl": [
       "https://i.ibb.co/rGqyy1MK/image.png"
     ]
+  },
+  "010082001A646000": {
+    "game_titles": {
+      "010082001A646000": {
+        "id": "010082001A646000",
+        "name": "Minabo - A Walk Through Life",
+        "iconUrl": "https://tinfoil.media/ti/010082001A646000/256/256/"
+      }
+    },
+    "spineUrl": [
+      "https://i.ibb.co/JwqH8Rdm/image.png",
+      "https://i.ibb.co/1t6YJkNy/image.png"
+    ]
   }
 }
