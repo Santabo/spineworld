@@ -34,6 +34,11 @@
       margin: 1rem;
       cursor: pointer;
     }
+    .error-message {
+      color: red;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -50,6 +55,7 @@
       <button class="carousel-button" onclick="changeSpine(-1)">Previous</button>
       <button class="carousel-button" onclick="changeSpine(1)">Next</button>
     </div>
+    <div class="error-message" id="errorMessage"></div> <!-- Error message container -->
   </main>
 
   <script>
@@ -61,7 +67,7 @@
       const titleId = urlParams.get("game");
 
       if (!titleId) {
-        alert("Game not found!");
+        displayError("Game ID is missing.");
         return;
       }
 
@@ -72,7 +78,7 @@
           const gameData = spines[titleId];
 
           if (!gameData) {
-            alert("Game data not found!");
+            displayError("Game data not found for the selected title.");
             return;
           }
 
@@ -88,8 +94,15 @@
         })
         .catch(error => {
           console.error("Error loading spines.json:", error);
+          displayError("An error occurred while loading the game data.");
         });
     });
+
+    // Function to display an error message
+    function displayError(message) {
+      const errorMessageContainer = document.getElementById("errorMessage");
+      errorMessageContainer.textContent = message;
+    }
 
     // Function to change the displayed spine
     function changeSpine(direction) {
