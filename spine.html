@@ -71,7 +71,7 @@
         return;
       }
 
-      fetch('/data/spines.json')
+      fetch('https://raw.githubusercontent.com/Santabo/spineworld/refs/heads/main/data/spines.json')
         .then(response => response.json())
         .then(spines => {
           let gameData = null;

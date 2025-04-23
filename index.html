@@ -89,7 +89,7 @@
 
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-    fetch(`/data/spines.json?cacheBust=${Date.now()}`)
+    fetch(`https://raw.githubusercontent.com/Santabo/spineworld/refs/heads/main/data/spines.json?cacheBust=${Date.now()}`)
       .then(response => response.json())
       .then(spines => {
         const games = Object.values(spines).map(spineData => {
