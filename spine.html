@@ -43,6 +43,11 @@
       opacity: 1;
     }
 
+    .spine-container img.error {
+      opacity: 0.5;
+      border: 2px dashed red;
+    }
+
     .error-message {
       color: red;
       font-size: 1.2rem;
@@ -98,6 +103,7 @@
             renderSpines(currentSpineUrls);
           } else {
             console.log("No changes detected for spine URLs. Skipping re-render.");
+            renderSpines(savedSpineUrls); // Still render saved spines
           }
         })
         .catch(error => {
@@ -112,6 +118,11 @@
         const windowHeight = window.innerHeight;
         const newHeight = windowHeight * 0.8;
 
+        if (spineUrls.length === 0) {
+          displayError("No spines available for this game.");
+          return;
+        }
+
         spineUrls.forEach(url => {
           const img = document.createElement("img");
           img.src = `${url}?v=${Date.now()}`;
@@ -123,10 +134,15 @@
 
             img.style.height = `${newHeight}px`;
             img.style.width = `${newWidth}px`;
-
             img.classList.add("visible");
-            spineContainer.appendChild(img);
           };
+
+          img.onerror = () => {
+            img.alt = "Failed to load spine image.";
+            img.classList.add("error");
+          };
+
+          spineContainer.appendChild(img);
         });
       }
 
