@@ -314,5 +314,18 @@
             "https://lh3.googleusercontent.com/d/1OvLUhb0Z6dpDtSToY0XWGgcLn5CyG2dD=s4000",
             "https://lh3.googleusercontent.com/d/1LiFt2jT3v0pL6MdfZEr9V8IjipctKmgl=s4000"
         ]
+    },
+    "0100BE50042F6000": {
+        "game_titles": {
+            "0100BE50042F6000": {
+                "id": "0100BE50042F6000",
+                "name": "Yono and the Celestial Elephants",
+                "iconUrl": "https://tinfoil.media/ti/0100BE50042F6000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://lh3.googleusercontent.com/d/1dPEjXURNn_o4vuF4vRCYC-A9F3x-84dL=s4000",
+            "https://lh3.googleusercontent.com/d/1Tg2hpaHrIiP6QGXeump5EKNnyO0rNz9S=s4000"
+        ]
     }
 }
