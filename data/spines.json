@@ -217,5 +217,65 @@
             "https://i.ibb.co/XZbVD9zq/image.png",
             "https://i.ibb.co/1j78QSB/image.png"
         ]
+    },
+    "01002CC003FE6000": {
+        "game_titles": {
+            "01002CC003FE6000": {
+                "id": "01002CC003FE6000",
+                "name": "Starlink: Battle for Atlas™",
+                "iconUrl": "https://tinfoil.media/ti/01002CC003FE6000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/RTCb4PGN/image.png"
+        ]
+    },
+    "01004D901AFDA000": {
+        "game_titles": {
+            "01004D901AFDA000": {
+                "id": "01004D901AFDA000",
+                "name": "Disney Epic Mickey: Rebrushed",
+                "iconUrl": "https://tinfoil.media/ti/01004D901AFDA000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/fV7bqJxm/image.png"
+        ]
+    },
+    "0100D1501ABAE000": {
+        "game_titles": {
+            "0100D1501ABAE000": {
+                "id": "0100D1501ABAE000",
+                "name": "SOUTH PARK: SNOW DAY!",
+                "iconUrl": "https://tinfoil.media/ti/0100D1501ABAE000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/4w6sJwgx/image.png"
+        ]
+    },
+    "010033600ADE6000": {
+        "game_titles": {
+            "010033600ADE6000": {
+                "id": "010033600ADE6000",
+                "name": "Wheel of Fortune®",
+                "iconUrl": "https://tinfoil.media/ti/010033600ADE6000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/sdn2D51D/image.png"
+        ]
+    },
+    "01006A800016E000": {
+        "game_titles": {
+            "01006A800016E000": {
+                "id": "01006A800016E000",
+                "name": "Super Smash Bros.™ Ultimate",
+                "iconUrl": "https://tinfoil.media/ti/01006A800016E000/256/256/"
+            }
+        },
+        "spineUrl": [
+            "https://i.ibb.co/RkWnmwwP/image.png"
+        ]
     }
 }
