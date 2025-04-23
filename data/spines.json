@@ -106,11 +106,11 @@
         "spineUrl": [
             "https://i.redd.it/4y700p7ev7ve1.jpeg",
             "https://i.ibb.co/xKTrfHxp/image.png",
-            "https://drive.google.com/thumbnail?id=167IpiYVtaTLcMT14yHoEW8bEhqlwSRdk&sz=s4000",
-            "https://drive.google.com/thumbnail?id=1O1nmQ38UcDyx3Jps4Qsx0OGR6QPUePAU&sz=s4000",
-            "https://drive.google.com/thumbnail?id=1FM38b_gfTJYS5SOqtCCXJkAnjDshFsPH&sz=s4000",
-            "https://drive.google.com/thumbnail?id=18kbE3YC9jizDs7QJDJNqxUspzMWvRZas&sz=s4000",
-            "https://drive.google.com/thumbnail?id=17s1BX0ytJOvlHAUOcnB99Wl8uae3UtTq&sz=s4000"
+            "https://drive.google.com/thumbnail?id=167IpiYVtaTLcMT14yHoEW8bEhqlwSRdk&sz=s2048",
+            "https://drive.google.com/thumbnail?id=1O1nmQ38UcDyx3Jps4Qsx0OGR6QPUePAU&sz=s2048",
+            "https://drive.google.com/thumbnail?id=1FM38b_gfTJYS5SOqtCCXJkAnjDshFsPH&sz=s2048",
+            "https://drive.google.com/thumbnail?id=18kbE3YC9jizDs7QJDJNqxUspzMWvRZas&sz=s2048",
+            "https://drive.google.com/thumbnail?id=17s1BX0ytJOvlHAUOcnB99Wl8uae3UtTq&sz=s2048"
         ]
     },
     "0100AB401F136000": {
@@ -293,8 +293,8 @@
         },
         "spineUrl": [
             "https://i.ibb.co/Z6T2344R/image.png",
-            "https://drive.google.com/thumbnail?id=1OvLUhb0Z6dpDtSToY0XWGgcLn5CyG2dD&sz=s4000",
-            "https://drive.google.com/thumbnail?id=1LiFt2jT3v0pL6MdfZEr9V8IjipctKmgl&sz=s4000"
+            "https://drive.google.com/thumbnail?id=1OvLUhb0Z6dpDtSToY0XWGgcLn5CyG2dD&sz=s2048",
+            "https://drive.google.com/thumbnail?id=1LiFt2jT3v0pL6MdfZEr9V8IjipctKmgl&sz=s2048"
         ]
     }
 }
