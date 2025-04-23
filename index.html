@@ -88,67 +88,67 @@
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('/data/spines.json')
-        .then(response => response.json())
-        .then(spines => {
-          const games = Object.values(spines).map(spineData => {
-            const gameDetails = Object.values(spineData.game_titles)[0];
-            return {
-              title_id: gameDetails.id,
-              name: gameDetails.name,
-              iconUrl: gameDetails.iconUrl,
-              spineUrls: Array.isArray(spineData.spineUrl) ? spineData.spineUrl : [spineData.spineUrl]
-            };
-          });
-
-          // Sort games alphabetically
-          games.sort((a, b) => a.name.localeCompare(b.name));
-
-          const gameGrid = document.getElementById("gameGrid");
-          const searchInput = document.getElementById("searchInput");
-
-          const renderGames = (filteredGames) => {
-            gameGrid.innerHTML = '';
-            filteredGames.forEach(game => {
-              const item = document.createElement("div");
-              item.className = "spine-item";
-
-              const link = document.createElement("a");
-              link.href = `spine.html?game=${game.title_id}`;
-
-              const img = document.createElement("img");
-              img.alt = `Game icon for ${game.name}`;
-              img.onload = () => {
-                img.classList.add("visible");
-              };
-              img.src = game.iconUrl;
-
-              const title = document.createElement("div");
-              title.className = "spine-title";
-              title.textContent = game.name;
-
-              link.appendChild(img);
-              link.appendChild(title);
-              item.appendChild(link);
-              gameGrid.appendChild(item);
-            });
+  document.addEventListener("DOMContentLoaded", () => {
+    fetch(`/data/spines.json?cacheBust=${Date.now()}`)
+      .then(response => response.json())
+      .then(spines => {
+        const games = Object.values(spines).map(spineData => {
+          const gameDetails = Object.values(spineData.game_titles)[0];
+          return {
+            title_id: gameDetails.id,
+            name: gameDetails.name,
+            iconUrl: gameDetails.iconUrl,
+            spineUrls: Array.isArray(spineData.spineUrl) ? spineData.spineUrl : [spineData.spineUrl]
           };
-
-          // Initial render
-          renderGames(games);
-
-          // Add search functionality
-          searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
-            renderGames(filteredGames);
-          });
-        })
-        .catch(error => {
-          console.error("Error loading spines.json:", error);
         });
-    });
-  </script>
+
+        // Sort games alphabetically
+        games.sort((a, b) => a.name.localeCompare(b.name));
+
+        const gameGrid = document.getElementById("gameGrid");
+        const searchInput = document.getElementById("searchInput");
+
+        const renderGames = (filteredGames) => {
+          gameGrid.innerHTML = '';
+          filteredGames.forEach(game => {
+            const item = document.createElement("div");
+            item.className = "spine-item";
+
+            const link = document.createElement("a");
+            link.href = `spine.html?game=${game.title_id}`;
+
+            const img = document.createElement("img");
+            img.alt = `Game icon for ${game.name}`;
+            img.onload = () => {
+              img.classList.add("visible");
+            };
+            img.src = game.iconUrl;
+
+            const title = document.createElement("div");
+            title.className = "spine-title";
+            title.textContent = game.name;
+
+            link.appendChild(img);
+            link.appendChild(title);
+            item.appendChild(link);
+            gameGrid.appendChild(item);
+          });
+        };
+
+        // Initial render
+        renderGames(games);
+
+        // Add search functionality
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase();
+          const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+          renderGames(filteredGames);
+        });
+      })
+      .catch(error => {
+        console.error("Error loading spines.json:", error);
+      });
+  });
+</script>
 </body>
 </html>
